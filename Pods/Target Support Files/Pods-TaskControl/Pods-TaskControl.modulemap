@@ -1,0 +1,6 @@
+framework module Pods_TaskControl {
+  umbrella header "Pods-TaskControl-umbrella.h"
+
+  export *
+  module * { export * }
+}
