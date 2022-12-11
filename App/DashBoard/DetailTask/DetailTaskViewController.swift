@@ -65,7 +65,8 @@ class DetailTaskViewController: UIViewController {
         subscriptions()
         viewModelTask.getUsers()
       
-        titleTask.text = taskDetail.tarea!.tituloTarea!
+        let idString = String(self.taskDetail.tarea?.id! ?? 0)
+        titleTask.text = "#\(idString) \(taskDetail.tarea!.tituloTarea!)"
 
         let days = Int(stateContext.shared.getProgress(fechaTermino: (taskDetail.tarea?.fechaLimite!)!))!
         
@@ -141,13 +142,19 @@ class DetailTaskViewController: UIViewController {
 
         viewModelTask.asignamentTask(userTarea: taskDetail, newUser: user.id!)
         
+        viewModelTask.createNotifications(notificador: (UserContextManager.shared.user?.user?.id!)!, notificado: user.id!, message: "Se ha reasignado la tarea \(taskDetail.tarea?.tituloTarea!)", is_read: false, tareaId: (taskDetail.tarea?.id!)!)
+
+        
     }
     
+    @IBAction func deleteTask(_ sender: Any) {
+    }
 }
 
 extension DetailTaskViewController {
     private func subscriptions(){
         getUsersSubscription()
+        asignamentTaskSubscription()
     }
     
     private func getUsersSubscription(){
@@ -168,5 +175,22 @@ extension DetailTaskViewController {
             self.asignament.text = "Asignado por: \(self.usuarioAsignador!.name!) \(self.usuarioAsignador!.lastName!)"
         }).disposed(by: disposeBag)
     }
+    
+    private func asignamentTaskSubscription(){
+        viewModelTask.taskreAsign.subscribe(onNext: { [weak self] _ in
+                        
+            
+            
+            let viewController = CongratsViewController("Haz reasignado una tarea correctamente", status: Status.success)
+            viewController.modalPresentationStyle = .overCurrentContext
+            self!.present(viewController, animated: true)
+            
+        }).disposed(by: disposeBag)
+    }
+    
+    
+    
+    
+    
 }
 

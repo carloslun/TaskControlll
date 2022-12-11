@@ -96,7 +96,12 @@ extension  NavsViewController: MenuDelegate {
         
             case .notifications:
                 self?.goToNotifications()
+                
+            case .flujo:
+                self?.goToFlow()
             }
+            
+        
         }
     }
     
@@ -169,5 +174,14 @@ extension  NavsViewController: MenuDelegate {
             self.menu.countNotifications = myNotifications.count
             
         }).disposed(by: disposeBag)
+    }
+    
+    func goToFlow(){
+        let vc = UserFlujoViewController()
+        home.addChild(vc)
+        home.view.addSubview(vc.view)
+        vc.view.frame = view.frame
+        vc.didMove(toParent: home)
+        home.title = "Mis Flujos"
     }
 }

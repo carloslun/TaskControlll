@@ -20,6 +20,7 @@ class Menu: UIViewController, UITableViewDelegate, UITableViewDataSource {
         case listMyTask = "Mis Tareas"
         case userTask = "Revision Usuarios"
         case notifications = "Notificaciones"
+        case flujo = "Mis Flujos"
         case logout = "Salir"
         
     }

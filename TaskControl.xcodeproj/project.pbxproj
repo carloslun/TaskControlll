@@ -44,6 +44,11 @@
 		C77EEC7528E533A00032C9A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77EEC7328E533A00032C9A8 /* LaunchScreen.storyboard */; };
 		C7912F8B28EBCF0100EA3FDF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7912F8A28EBCF0100EA3FDF /* LoginViewController.swift */; };
 		C7912F8D28EBD22100EA3FDF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7912F8C28EBD22100EA3FDF /* LoginView.swift */; };
+		C79FA7BE29453F5900F058CD /* UserFlujoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FA7BC29453F5900F058CD /* UserFlujoViewController.swift */; };
+		C79FA7BF29453F5900F058CD /* UserFlujoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C79FA7BD29453F5900F058CD /* UserFlujoViewController.xib */; };
+		C79FA7C2294554A900F058CD /* userFlujoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FA7C1294554A900F058CD /* userFlujoModel.swift */; };
+		C79FA7C5294555B100F058CD /* userFlujoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FA7C3294555B100F058CD /* userFlujoTableViewCell.swift */; };
+		C79FA7C6294555B100F058CD /* userFlujoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C79FA7C4294555B100F058CD /* userFlujoTableViewCell.xib */; };
 		C7A915412902176D00D0A6DD /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9153F2902176D00D0A6DD /* TaskViewController.swift */; };
 		C7A915422902176D00D0A6DD /* TaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A915402902176D00D0A6DD /* TaskViewController.xib */; };
 		C7A9154629022A7A00D0A6DD /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9154529022A7A00D0A6DD /* TaskViewModel.swift */; };
@@ -104,6 +109,11 @@
 		C77EEC7628E533A00032C9A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7912F8A28EBCF0100EA3FDF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C7912F8C28EBD22100EA3FDF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C79FA7BC29453F5900F058CD /* UserFlujoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFlujoViewController.swift; sourceTree = "<group>"; };
+		C79FA7BD29453F5900F058CD /* UserFlujoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserFlujoViewController.xib; sourceTree = "<group>"; };
+		C79FA7C1294554A900F058CD /* userFlujoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userFlujoModel.swift; sourceTree = "<group>"; };
+		C79FA7C3294555B100F058CD /* userFlujoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userFlujoTableViewCell.swift; sourceTree = "<group>"; };
+		C79FA7C4294555B100F058CD /* userFlujoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = userFlujoTableViewCell.xib; sourceTree = "<group>"; };
 		C7A9153F2902176D00D0A6DD /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		C7A915402902176D00D0A6DD /* TaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskViewController.xib; sourceTree = "<group>"; };
 		C7A9154529022A7A00D0A6DD /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
@@ -356,9 +366,30 @@
 			name = ViewModel;
 			sourceTree = "<group>";
 		};
+		C79FA7BB29453F3C00F058CD /* UserFlujo */ = {
+			isa = PBXGroup;
+			children = (
+				C79FA7C02945548500F058CD /* model */,
+				C79FA7BC29453F5900F058CD /* UserFlujoViewController.swift */,
+				C79FA7BD29453F5900F058CD /* UserFlujoViewController.xib */,
+				C79FA7C3294555B100F058CD /* userFlujoTableViewCell.swift */,
+				C79FA7C4294555B100F058CD /* userFlujoTableViewCell.xib */,
+			);
+			path = UserFlujo;
+			sourceTree = "<group>";
+		};
+		C79FA7C02945548500F058CD /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C79FA7C1294554A900F058CD /* userFlujoModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		C7A9153E2902172B00D0A6DD /* DashBoard */ = {
 			isa = PBXGroup;
 			children = (
+				C79FA7BB29453F3C00F058CD /* UserFlujo */,
 				C749F1CA293D4DFC00011E7B /* Report */,
 				C76F474F293B0771001D8640 /* Notifications */,
 				C7BE091029384294002A7CB2 /* ListUserTask */,
@@ -494,6 +525,7 @@
 				C729D68229336D7800C6CA74 /* TaskListViewController.xib in Resources */,
 				C7BE091C2938434C002A7CB2 /* ListTaskUserViewController.xib in Resources */,
 				C74133AD2914723C00F5B0FF /* HomeViewController.xib in Resources */,
+				C79FA7BF29453F5900F058CD /* UserFlujoViewController.xib in Resources */,
 				C729D671293349EE00C6CA74 /* CongratsViewController.xib in Resources */,
 				C729D6762933547F00C6CA74 /* DetailTaskViewController.xib in Resources */,
 				C7A915422902176D00D0A6DD /* TaskViewController.xib in Resources */,
@@ -503,6 +535,7 @@
 				C77EEC7228E533A00032C9A8 /* Assets.xcassets in Resources */,
 				C729D6662933089700C6CA74 /* TaskTableViewCell.xib in Resources */,
 				C749F1CE293D4E1800011E7B /* ReportViewController.xib in Resources */,
+				C79FA7C6294555B100F058CD /* userFlujoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +595,7 @@
 				C7C65A0528ED0EB800DEDA54 /* LoginViewModelProtocol.swift in Sources */,
 				C729D66C2933354F00C6CA74 /* SimpleResponse.swift in Sources */,
 				C76F4752293B078B001D8640 /* NotificationsViewController.swift in Sources */,
+				C79FA7C2294554A900F058CD /* userFlujoModel.swift in Sources */,
 				C7912F8B28EBCF0100EA3FDF /* LoginViewController.swift in Sources */,
 				C729D66829331C8D00C6CA74 /* UIColor + Extension.swift in Sources */,
 				C7244F822931D65D007D1FD7 /* UserContextManager.swift in Sources */,
@@ -569,6 +603,7 @@
 				C729D68129336D7800C6CA74 /* TaskListViewController.swift in Sources */,
 				C77EEC6928E5339D0032C9A8 /* AppDelegate.swift in Sources */,
 				C7BE0920293865FC002A7CB2 /* DateFormaterrCustom.swift in Sources */,
+				C79FA7BE29453F5900F058CD /* UserFlujoViewController.swift in Sources */,
 				C729D670293349EE00C6CA74 /* CongratsViewController.swift in Sources */,
 				C7A915412902176D00D0A6DD /* TaskViewController.swift in Sources */,
 				C7B8D9242939B2C500EC442C /* UIViewController + Extension.swift in Sources */,
@@ -593,6 +628,7 @@
 				C75D325C29218B6300BD2814 /* Rol.swift in Sources */,
 				C7BE091B2938434C002A7CB2 /* ListTaskUserViewController.swift in Sources */,
 				C7C65A0728ED11B600DEDA54 /* LoginViewModel.swift in Sources */,
+				C79FA7C5294555B100F058CD /* userFlujoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

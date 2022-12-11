@@ -9,7 +9,9 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var header: UILabel!
     
+    @IBOutlet weak var countFlows: UILabel!
     
+    @IBOutlet weak var containerFlow: UIView!
     
     weak var delegate: HomeViewControllerDelegate?
     let viewmodel = TaskViewModel()
@@ -27,6 +29,7 @@ class HomeViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .done, target: self, action: #selector(didtapMenuButtom))
         setupHeader()
         viewmodel.getTaskForUserLoged()
+        viewmodel.getFlowByMyUser()
     }
     
     @objc func didtapMenuButtom(){
@@ -39,6 +42,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     private func subscriptions(){
         fetchMyTaskSubscription()
+        fetchMyFlowsSubscriptions()
     }
     
     private func fetchMyTaskSubscription(){
@@ -47,8 +51,17 @@ extension HomeViewController {
             self.listMyTask = response.filter({ usertarea in
                 Int(usertarea.estadoTarea!) != 5
             })
-            self.countMyTask.text = String(self.listMyTask.count)
+            self.countMyTask.text = String(self.listMyTask.filter({ tarea in
+                Int(tarea.estadoTarea!) != 3 &&  Int(tarea.estadoTarea!) != 5
+            }).count)
         }).disposed(by: disposeBag)
+    }
+    
+    private func fetchMyFlowsSubscriptions(){
+        viewmodel.myFlow.subscribe(onNext: { [weak self] flujo in
+            self?.countFlows.text = String(flujo.count)
+        }).disposed(by: disposeBag)
+        
     }
 }
 
@@ -57,6 +70,10 @@ extension HomeViewController {
     private func setup(){
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         gestureView.addGestureRecognizer(tap)
+        
+        
+        let tapFlow = UITapGestureRecognizer(target: self, action: #selector(self.handleTapFlow(_:)))
+        containerFlow.addGestureRecognizer(tapFlow)
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil){
@@ -69,6 +86,16 @@ extension HomeViewController {
         vc.didMove(toParent: self)
         title = "Mis Tareas"
     }
+    
+    @objc func handleTapFlow(_ sender: UITapGestureRecognizer? = nil){
+        let vc = UserFlujoViewController()
+        addChild(vc)
+        view.addSubview(vc.view)
+        vc.view.frame = view.frame
+        vc.didMove(toParent: self)
+        title = "Mis Flujos"
+    }
+ 
  
     private func setupHeader(){
         guard let user = UserContextManager.shared.user?.user else { return }

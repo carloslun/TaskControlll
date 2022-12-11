@@ -12,8 +12,9 @@ class TaskViewModel {
     var listNotification = PublishSubject<[NotificationsModel]>()
     var myAsignamentTask = PublishSubject<[UserTarea]>()
     var taskbyid = PublishSubject<[UserTarea]>()
-    
+    var taskreAsign = PublishSubject<Void>()
     var reloadTable = PublishSubject<Void>()
+    var myFlow = PublishSubject<[UserFlujo]>()
     
     required init() {
         
@@ -128,7 +129,18 @@ class TaskViewModel {
             switch response.result {
             case .success(let success):
                 print("H")
-//                self?.taskbyid.onNext(success)
+                self?.taskreAsign.onNext(Void())
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    func getFlowByMyUser(){
+        taskProvider.getFlowByMyUser { [weak self] response in
+            switch response.result {
+            case .success(let success):
+                self!.myFlow.onNext(success)
+                
             case .failure(let error):
                 print(error)
             }

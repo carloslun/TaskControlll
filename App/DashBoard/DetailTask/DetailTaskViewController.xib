@@ -162,10 +162,15 @@
                                 <constraint firstItem="pMv-um-wCR" firstAttribute="leading" secondItem="4t8-aP-H6m" secondAttribute="leading" constant="10" id="dHv-sd-fZ6"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y64-n4-yiC">
-                            <rect key="frame" x="20" y="724" width="374" height="35"/>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y64-n4-yiC">
+                            <rect key="frame" x="20" y="726" width="374" height="31"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" image="list.bullet.rectangle.portrait" catalog="system"/>
+                            <buttonConfiguration key="configuration" style="filled" image="trash" catalog="system">
+                                <color key="baseBackgroundColor" red="0.5589188933" green="0.16150149699999999" blue="0.1450108588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="deleteTask:" destination="-1" eventType="touchUpInside" id="ZpO-f2-hcj"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hwa-9d-l6O">
                             <rect key="frame" x="20" y="8" width="374" height="103"/>
@@ -180,10 +185,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RbF-lY-mhO">
-                                            <rect key="frame" x="189" y="26.5" width="50" height="50"/>
+                                            <rect key="frame" x="189" y="26.5" width="165" height="50"/>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVQ-Lo-kLK">
-                                            <rect key="frame" x="249" y="36" width="105" height="31"/>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVQ-Lo-kLK">
+                                            <rect key="frame" x="354" y="36" width="0.0" height="31"/>
                                             <color key="tintColor" red="0.5589188933" green="0.16150149699999999" blue="0.1450108588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="exclamationmark.triangle" catalog="system"/>
@@ -211,12 +216,10 @@
                         <constraint firstItem="4t8-aP-H6m" firstAttribute="trailing" secondItem="vpW-du-XPs" secondAttribute="trailing" id="1AU-UY-5jz"/>
                         <constraint firstItem="Hwa-9d-l6O" firstAttribute="centerX" secondItem="GGs-Tb-Uqr" secondAttribute="centerX" id="23o-AC-55J"/>
                         <constraint firstAttribute="trailing" secondItem="Hwa-9d-l6O" secondAttribute="trailing" constant="20" id="6qD-yI-1rG"/>
-                        <constraint firstItem="y64-n4-yiC" firstAttribute="width" secondItem="vpW-du-XPs" secondAttribute="width" multiplier="0.200535" constant="299" id="7c7-Mh-A2t"/>
                         <constraint firstItem="NRC-0J-YP9" firstAttribute="top" secondItem="Hwa-9d-l6O" secondAttribute="bottom" constant="38" id="8P4-5n-zUc"/>
                         <constraint firstItem="NMf-Hx-zeL" firstAttribute="trailing" secondItem="4t8-aP-H6m" secondAttribute="trailing" id="8SU-uS-QLu"/>
                         <constraint firstItem="Snt-2j-7Nc" firstAttribute="bottom" secondItem="vpW-du-XPs" secondAttribute="bottom" constant="20" id="EIA-1g-CjP"/>
                         <constraint firstItem="4t8-aP-H6m" firstAttribute="top" secondItem="NMf-Hx-zeL" secondAttribute="bottom" constant="8" id="EnR-RN-dbv"/>
-                        <constraint firstItem="vpW-du-XPs" firstAttribute="top" secondItem="y64-n4-yiC" secondAttribute="bottom" constant="8" symbolic="YES" id="FHP-9f-vHQ"/>
                         <constraint firstItem="ItK-Ny-aF4" firstAttribute="top" secondItem="pWX-9Y-VFk" secondAttribute="bottom" constant="8" id="FZM-vh-kgr"/>
                         <constraint firstItem="Hwa-9d-l6O" firstAttribute="top" secondItem="Snt-2j-7Nc" secondAttribute="top" constant="8" id="IFO-GG-O11"/>
                         <constraint firstItem="pWX-9Y-VFk" firstAttribute="top" secondItem="Hwa-9d-l6O" secondAttribute="bottom" constant="8" id="Ian-ko-HS6"/>
@@ -226,9 +229,11 @@
                         <constraint firstItem="pWX-9Y-VFk" firstAttribute="trailing" secondItem="NRC-0J-YP9" secondAttribute="trailing" id="Rfn-0N-bVk"/>
                         <constraint firstItem="ItK-Ny-aF4" firstAttribute="trailing" secondItem="NMf-Hx-zeL" secondAttribute="trailing" id="XXY-Ig-ihe"/>
                         <constraint firstItem="pWX-9Y-VFk" firstAttribute="leading" secondItem="NRC-0J-YP9" secondAttribute="leading" id="YjX-EZ-ruV"/>
+                        <constraint firstItem="vpW-du-XPs" firstAttribute="top" secondItem="y64-n4-yiC" secondAttribute="bottom" constant="10" id="Yp0-Dh-vDw"/>
                         <constraint firstItem="Snt-2j-7Nc" firstAttribute="trailing" secondItem="vpW-du-XPs" secondAttribute="trailing" constant="20" id="ZXz-xP-eMs"/>
+                        <constraint firstItem="Snt-2j-7Nc" firstAttribute="trailing" secondItem="y64-n4-yiC" secondAttribute="trailing" constant="20" id="b1r-tE-0BG"/>
                         <constraint firstItem="Hwa-9d-l6O" firstAttribute="trailing" secondItem="NRC-0J-YP9" secondAttribute="trailing" id="iM3-Co-LMg"/>
-                        <constraint firstItem="y64-n4-yiC" firstAttribute="height" secondItem="vpW-du-XPs" secondAttribute="height" multiplier="1.12903" id="j4l-Nh-H9Q"/>
+                        <constraint firstItem="y64-n4-yiC" firstAttribute="height" secondItem="vpW-du-XPs" secondAttribute="height" id="loM-aW-bma"/>
                         <constraint firstItem="ItK-Ny-aF4" firstAttribute="leading" secondItem="NMf-Hx-zeL" secondAttribute="leading" id="myo-Fo-xa0"/>
                         <constraint firstItem="NRC-0J-YP9" firstAttribute="leading" secondItem="ItK-Ny-aF4" secondAttribute="leading" id="ptQ-Dc-44W"/>
                         <constraint firstItem="ItK-Ny-aF4" firstAttribute="top" secondItem="NRC-0J-YP9" secondAttribute="bottom" constant="87" id="qvT-ix-hWE"/>
@@ -236,8 +241,7 @@
                         <constraint firstItem="NMf-Hx-zeL" firstAttribute="top" secondItem="ItK-Ny-aF4" secondAttribute="bottom" constant="-20" id="sK5-LY-yaK"/>
                         <constraint firstItem="vpW-du-XPs" firstAttribute="leading" secondItem="Snt-2j-7Nc" secondAttribute="leading" constant="20" id="tlm-uK-sed"/>
                         <constraint firstItem="Hwa-9d-l6O" firstAttribute="leading" secondItem="NRC-0J-YP9" secondAttribute="leading" id="vgQ-4o-k9i"/>
-                        <constraint firstItem="vpW-du-XPs" firstAttribute="leading" secondItem="y64-n4-yiC" secondAttribute="trailing" constant="-374" id="y8r-NQ-5SQ"/>
-                        <constraint firstItem="y64-n4-yiC" firstAttribute="centerY" secondItem="vpW-du-XPs" secondAttribute="centerY" constant="-41" id="zZ2-0E-N8w"/>
+                        <constraint firstItem="y64-n4-yiC" firstAttribute="leading" secondItem="Snt-2j-7Nc" secondAttribute="leading" constant="20" id="yg8-E8-Clp"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="jmF-hG-DKV"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="Snt-2j-7Nc"/>
@@ -267,7 +271,7 @@
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
         <image name="exclamationmark.triangle" catalog="system" width="128" height="112"/>
         <image name="house" catalog="system" width="128" height="106"/>
-        <image name="list.bullet.rectangle.portrait" catalog="system" width="115" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -40,7 +40,7 @@ class stateContext: NSObject {
     }
     
     var options = [
-        "Sin asignar",// 0
+        "Asignada",// 0
         "Por empezar",// 1
         "En progreso",// 2
         "Finalizada",// 3

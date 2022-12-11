@@ -143,8 +143,10 @@ class TaskProvider {
     func asignamentTask(_ userTarea: UserTarea, _ newUser: Int ,_ completion: @escaping (DataResponse<SimpleResponse, AFError>) -> Void){
         let parameters = [
             
-            "estado_tarea": 2,
-            "asignador": Int(userTarea.asignador!)
+            "user": newUser,
+            "tarea": userTarea.tarea?.id!,
+            "estado_tarea": 0,
+            "asignador": UserContextManager.shared.user?.user?.id!
         ]
         AF.request("https://imbot.pythonanywhere.com/api/userTarea/crud-userTarea/\(userTarea.id!)/", method: .put, parameters: parameters, encoding: URLEncoding.default, headers: nil)
             .responseJSON { response in
@@ -239,6 +241,25 @@ class TaskProvider {
                 print(response)
             }
             .responseDecodable(of: [UserTarea].self, decoder: decoder){ (response) in
+                completion(response)
+        }
+    }
+    
+    func getFlowByMyUser(_ completion: @escaping (DataResponse<[UserFlujo], AFError>) -> Void){
+        let parameters = [
+            "user": UserContextManager.shared.user?.user?.id!
+        ]
+        AF.request("https://imbot.pythonanywhere.com/api/userFlujo/crud-userFlujo", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+            .responseJSON { response in
+                print(response)
+            }
+            .responseData { response in
+                print(response)
+            }
+            .responseString { response in
+                print(response)
+            }
+            .responseDecodable(of: [UserFlujo].self, decoder: decoder){ (response) in
                 completion(response)
         }
     }

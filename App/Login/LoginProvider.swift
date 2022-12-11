@@ -16,7 +16,7 @@ class LoginProvider: LoginProviderProtocol {
     func login(withUsername username: String, withPassword password: String, _ completion: @escaping (DataResponse<Login, AFError>) -> Void) {
         
         let params = [
-            "username": username,
+            "username": username.lowercased(),
             "password": password
         ]
         
